@@ -1,0 +1,500 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9FF2C77C17C1341500468634 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FF2C77B17C1341500468634 /* UIKit.framework */; };
+		9FF2C77E17C1341500468634 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FF2C77D17C1341500468634 /* Foundation.framework */; };
+		9FF2C78017C1341500468634 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FF2C77F17C1341500468634 /* CoreGraphics.framework */; };
+		9FF2C78217C1341500468634 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FF2C78117C1341500468634 /* CoreData.framework */; };
+		9FF2C78817C1341500468634 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9FF2C78617C1341500468634 /* InfoPlist.strings */; };
+		9FF2C78A17C1341500468634 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF2C78917C1341500468634 /* main.m */; };
+		9FF2C78E17C1341500468634 /* RCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF2C78D17C1341500468634 /* RCAppDelegate.m */; };
+		9FF2C79017C1341500468634 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FF2C78F17C1341500468634 /* Default.png */; };
+		9FF2C79217C1341500468634 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FF2C79117C1341500468634 /* Default@2x.png */; };
+		9FF2C79417C1341500468634 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FF2C79317C1341500468634 /* Default-568h@2x.png */; };
+		9FF2C79717C1341500468634 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FF2C79517C1341500468634 /* MainStoryboard.storyboard */; };
+		9FF2C79A17C1341500468634 /* travelus.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9FF2C79817C1341500468634 /* travelus.xcdatamodeld */; };
+		9FF2C79D17C1341500468634 /* RCMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF2C79C17C1341500468634 /* RCMainViewController.m */; };
+		9FF2C7A017C1341500468634 /* RCFlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF2C79F17C1341500468634 /* RCFlipsideViewController.m */; };
+		9FF2C7A817C1341600468634 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FF2C7A717C1341600468634 /* SenTestingKit.framework */; };
+		9FF2C7A917C1341600468634 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FF2C77B17C1341500468634 /* UIKit.framework */; };
+		9FF2C7AA17C1341600468634 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FF2C77D17C1341500468634 /* Foundation.framework */; };
+		9FF2C7AB17C1341600468634 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FF2C78117C1341500468634 /* CoreData.framework */; };
+		9FF2C7B317C1341600468634 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9FF2C7B117C1341600468634 /* InfoPlist.strings */; };
+		9FF2C7B617C1341600468634 /* travelusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF2C7B517C1341600468634 /* travelusTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9FF2C7AC17C1341600468634 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9FF2C77017C1341500468634 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9FF2C77717C1341500468634;
+			remoteInfo = travelus;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9FF2C77817C1341500468634 /* travelus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = travelus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FF2C77B17C1341500468634 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9FF2C77D17C1341500468634 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9FF2C77F17C1341500468634 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9FF2C78117C1341500468634 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		9FF2C78517C1341500468634 /* travelus-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "travelus-Info.plist"; sourceTree = "<group>"; };
+		9FF2C78717C1341500468634 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9FF2C78917C1341500468634 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9FF2C78B17C1341500468634 /* travelus-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "travelus-Prefix.pch"; sourceTree = "<group>"; };
+		9FF2C78C17C1341500468634 /* RCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCAppDelegate.h; sourceTree = "<group>"; };
+		9FF2C78D17C1341500468634 /* RCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCAppDelegate.m; sourceTree = "<group>"; };
+		9FF2C78F17C1341500468634 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		9FF2C79117C1341500468634 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		9FF2C79317C1341500468634 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		9FF2C79617C1341500468634 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		9FF2C79917C1341500468634 /* travelus.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = travelus.xcdatamodel; sourceTree = "<group>"; };
+		9FF2C79B17C1341500468634 /* RCMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCMainViewController.h; sourceTree = "<group>"; };
+		9FF2C79C17C1341500468634 /* RCMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCMainViewController.m; sourceTree = "<group>"; };
+		9FF2C79E17C1341500468634 /* RCFlipsideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCFlipsideViewController.h; sourceTree = "<group>"; };
+		9FF2C79F17C1341500468634 /* RCFlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCFlipsideViewController.m; sourceTree = "<group>"; };
+		9FF2C7A617C1341600468634 /* travelusTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = travelusTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FF2C7A717C1341600468634 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		9FF2C7B017C1341600468634 /* travelusTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "travelusTests-Info.plist"; sourceTree = "<group>"; };
+		9FF2C7B217C1341600468634 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9FF2C7B417C1341600468634 /* travelusTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = travelusTests.h; sourceTree = "<group>"; };
+		9FF2C7B517C1341600468634 /* travelusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = travelusTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9FF2C77517C1341500468634 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FF2C77C17C1341500468634 /* UIKit.framework in Frameworks */,
+				9FF2C77E17C1341500468634 /* Foundation.framework in Frameworks */,
+				9FF2C78017C1341500468634 /* CoreGraphics.framework in Frameworks */,
+				9FF2C78217C1341500468634 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FF2C7A217C1341600468634 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FF2C7A817C1341600468634 /* SenTestingKit.framework in Frameworks */,
+				9FF2C7A917C1341600468634 /* UIKit.framework in Frameworks */,
+				9FF2C7AA17C1341600468634 /* Foundation.framework in Frameworks */,
+				9FF2C7AB17C1341600468634 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9FF2C76F17C1341500468634 = {
+			isa = PBXGroup;
+			children = (
+				9FF2C78317C1341500468634 /* travelus */,
+				9FF2C7AE17C1341600468634 /* travelusTests */,
+				9FF2C77A17C1341500468634 /* Frameworks */,
+				9FF2C77917C1341500468634 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9FF2C77917C1341500468634 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9FF2C77817C1341500468634 /* travelus.app */,
+				9FF2C7A617C1341600468634 /* travelusTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9FF2C77A17C1341500468634 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9FF2C77B17C1341500468634 /* UIKit.framework */,
+				9FF2C77D17C1341500468634 /* Foundation.framework */,
+				9FF2C77F17C1341500468634 /* CoreGraphics.framework */,
+				9FF2C78117C1341500468634 /* CoreData.framework */,
+				9FF2C7A717C1341600468634 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9FF2C78317C1341500468634 /* travelus */ = {
+			isa = PBXGroup;
+			children = (
+				9FF2C78C17C1341500468634 /* RCAppDelegate.h */,
+				9FF2C78D17C1341500468634 /* RCAppDelegate.m */,
+				9FF2C79517C1341500468634 /* MainStoryboard.storyboard */,
+				9FF2C79B17C1341500468634 /* RCMainViewController.h */,
+				9FF2C79C17C1341500468634 /* RCMainViewController.m */,
+				9FF2C79E17C1341500468634 /* RCFlipsideViewController.h */,
+				9FF2C79F17C1341500468634 /* RCFlipsideViewController.m */,
+				9FF2C79817C1341500468634 /* travelus.xcdatamodeld */,
+				9FF2C78417C1341500468634 /* Supporting Files */,
+			);
+			path = travelus;
+			sourceTree = "<group>";
+		};
+		9FF2C78417C1341500468634 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9FF2C78517C1341500468634 /* travelus-Info.plist */,
+				9FF2C78617C1341500468634 /* InfoPlist.strings */,
+				9FF2C78917C1341500468634 /* main.m */,
+				9FF2C78B17C1341500468634 /* travelus-Prefix.pch */,
+				9FF2C78F17C1341500468634 /* Default.png */,
+				9FF2C79117C1341500468634 /* Default@2x.png */,
+				9FF2C79317C1341500468634 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9FF2C7AE17C1341600468634 /* travelusTests */ = {
+			isa = PBXGroup;
+			children = (
+				9FF2C7B417C1341600468634 /* travelusTests.h */,
+				9FF2C7B517C1341600468634 /* travelusTests.m */,
+				9FF2C7AF17C1341600468634 /* Supporting Files */,
+			);
+			path = travelusTests;
+			sourceTree = "<group>";
+		};
+		9FF2C7AF17C1341600468634 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9FF2C7B017C1341600468634 /* travelusTests-Info.plist */,
+				9FF2C7B117C1341600468634 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9FF2C77717C1341500468634 /* travelus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9FF2C7B917C1341600468634 /* Build configuration list for PBXNativeTarget "travelus" */;
+			buildPhases = (
+				9FF2C77417C1341500468634 /* Sources */,
+				9FF2C77517C1341500468634 /* Frameworks */,
+				9FF2C77617C1341500468634 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = travelus;
+			productName = travelus;
+			productReference = 9FF2C77817C1341500468634 /* travelus.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9FF2C7A517C1341600468634 /* travelusTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9FF2C7BC17C1341600468634 /* Build configuration list for PBXNativeTarget "travelusTests" */;
+			buildPhases = (
+				9FF2C7A117C1341600468634 /* Sources */,
+				9FF2C7A217C1341600468634 /* Frameworks */,
+				9FF2C7A317C1341600468634 /* Resources */,
+				9FF2C7A417C1341600468634 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9FF2C7AD17C1341600468634 /* PBXTargetDependency */,
+			);
+			name = travelusTests;
+			productName = travelusTests;
+			productReference = 9FF2C7A617C1341600468634 /* travelusTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9FF2C77017C1341500468634 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = RC;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Grant Chen";
+			};
+			buildConfigurationList = 9FF2C77317C1341500468634 /* Build configuration list for PBXProject "travelus" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9FF2C76F17C1341500468634;
+			productRefGroup = 9FF2C77917C1341500468634 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9FF2C77717C1341500468634 /* travelus */,
+				9FF2C7A517C1341600468634 /* travelusTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9FF2C77617C1341500468634 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FF2C78817C1341500468634 /* InfoPlist.strings in Resources */,
+				9FF2C79017C1341500468634 /* Default.png in Resources */,
+				9FF2C79217C1341500468634 /* Default@2x.png in Resources */,
+				9FF2C79417C1341500468634 /* Default-568h@2x.png in Resources */,
+				9FF2C79717C1341500468634 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FF2C7A317C1341600468634 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FF2C7B317C1341600468634 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9FF2C7A417C1341600468634 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9FF2C77417C1341500468634 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FF2C78A17C1341500468634 /* main.m in Sources */,
+				9FF2C78E17C1341500468634 /* RCAppDelegate.m in Sources */,
+				9FF2C79A17C1341500468634 /* travelus.xcdatamodeld in Sources */,
+				9FF2C79D17C1341500468634 /* RCMainViewController.m in Sources */,
+				9FF2C7A017C1341500468634 /* RCFlipsideViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FF2C7A117C1341600468634 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FF2C7B617C1341600468634 /* travelusTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9FF2C7AD17C1341600468634 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9FF2C77717C1341500468634 /* travelus */;
+			targetProxy = 9FF2C7AC17C1341600468634 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9FF2C78617C1341500468634 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9FF2C78717C1341500468634 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		9FF2C79517C1341500468634 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9FF2C79617C1341500468634 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		9FF2C7B117C1341600468634 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9FF2C7B217C1341600468634 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9FF2C7B717C1341600468634 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		9FF2C7B817C1341600468634 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9FF2C7BA17C1341600468634 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "travelus/travelus-Prefix.pch";
+				INFOPLIST_FILE = "travelus/travelus-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9FF2C7BB17C1341600468634 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "travelus/travelus-Prefix.pch";
+				INFOPLIST_FILE = "travelus/travelus-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		9FF2C7BD17C1341600468634 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/travelus.app/travelus";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "travelus/travelus-Prefix.pch";
+				INFOPLIST_FILE = "travelusTests/travelusTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		9FF2C7BE17C1341600468634 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/travelus.app/travelus";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "travelus/travelus-Prefix.pch";
+				INFOPLIST_FILE = "travelusTests/travelusTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9FF2C77317C1341500468634 /* Build configuration list for PBXProject "travelus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FF2C7B717C1341600468634 /* Debug */,
+				9FF2C7B817C1341600468634 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9FF2C7B917C1341600468634 /* Build configuration list for PBXNativeTarget "travelus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FF2C7BA17C1341600468634 /* Debug */,
+				9FF2C7BB17C1341600468634 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9FF2C7BC17C1341600468634 /* Build configuration list for PBXNativeTarget "travelusTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FF2C7BD17C1341600468634 /* Debug */,
+				9FF2C7BE17C1341600468634 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9FF2C79817C1341500468634 /* travelus.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9FF2C79917C1341500468634 /* travelus.xcdatamodel */,
+			);
+			currentVersion = 9FF2C79917C1341500468634 /* travelus.xcdatamodel */;
+			path = travelus.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 9FF2C77017C1341500468634 /* Project object */;
+}
