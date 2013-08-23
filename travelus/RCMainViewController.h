@@ -7,11 +7,12 @@
 //
 
 #import "RCFlipsideViewController.h"
+#import <FacebookSDK/FacebookSDK.h>
 
-@interface RCMainViewController : UIViewController <RCFlipsideViewControllerDelegate, UIPopoverControllerDelegate>
+@interface RCMainViewController : UIViewController <RCFlipsideViewControllerDelegate, UIPopoverControllerDelegate, FBLoginViewDelegate>
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @property (strong, nonatomic) UIPopoverController *flipsidePopoverController;
-
+@property (nonatomic, strong) IBOutlet FBLoginView *fbLoginView;
 @end
