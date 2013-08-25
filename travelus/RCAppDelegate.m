@@ -7,20 +7,63 @@
 //
 
 #import "RCAppDelegate.h"
+#import "Itinerary.h"
+#import "POI.h"
 
 #import "RCMainViewController.h"
-
+#define CONTEXT ((RCAppDelegate *)[[UIApplication sharedApplication]delegate]).managedObjectContext
 @implementation RCAppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+#pragma mark - import data
+- (void)importTestData {
+    NSString *path = [[NSBundle mainBundle]pathForResource:@"kml" ofType:@"json"];
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    NSDictionary *resultDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+    /* check itinerary itinerary id */
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Itinerary"];
+    NSPredicate *predicat = [NSPredicate predicateWithFormat:@"itineraryID == %@", [resultDict objectForKey:@"id"]];
+    [request setPredicate:predicat];
+    NSArray *array = [CONTEXT executeFetchRequest:request error:nil];
+    Itinerary *itinerary = [array lastObject];
+    if (itinerary == nil){
+        itinerary = [NSEntityDescription insertNewObjectForEntityForName:@"Itinerary" inManagedObjectContext:CONTEXT];
+    }
+    itinerary.titile = [resultDict objectForKey:@"title"];
+    itinerary.detail = [resultDict objectForKey:@"detail"];
+    itinerary.itineraryID = [resultDict objectForKey:@"id"];
+    /* add or merge poi */
+    NSArray *poisArray = [resultDict objectForKey:@"pois"];
+    for (NSDictionary * dict in poisArray) {
+        request = [NSFetchRequest fetchRequestWithEntityName:@"POI"];
+        predicat = [NSPredicate predicateWithFormat:@"poiID==%@", [dict objectForKey:@"id"]];
+        [request setPredicate:predicat];
+        NSArray *array = [CONTEXT executeFetchRequest:request error:nil];
+        POI *poi = [array lastObject];
+        if (poi == nil) {
+            poi = [NSEntityDescription insertNewObjectForEntityForName:@"POI" inManagedObjectContext:CONTEXT];
+        }
+        poi.name = [dict objectForKey:@"name"];
+        poi.latitude = [dict objectForKey:@"latitude"];
+        poi.longitude = [dict objectForKey:@"longitude"];
+        poi.memo = [dict objectForKey:@"memo"];
+//        poi.sequence = [dict objectForKey:@"name"];
+//        poi.daytime = [dict objectForKey:@"name"];
+        poi.poiID = [dict objectForKey:@"id"];
+        poi.itinerary = itinerary;
+    }
+    [CONTEXT save:nil]; 
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    RCMainViewController *controller = (RCMainViewController *)self.window.rootViewController;
-    controller.managedObjectContext = self.managedObjectContext;
+//    RCMainViewController *controller = (RCMainViewController *)self.window.rootViewController;
+    [self managedObjectContext];
+    [self importTestData];
     return YES;
 }
 							

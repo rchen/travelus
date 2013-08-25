@@ -10,6 +10,10 @@
 		9F08051817C1DF4E00962AF8 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F08051717C1DF4E00962AF8 /* FacebookSDK.framework */; };
 		9F08051A17C1DF7500962AF8 /* FBUserSettingsViewResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9F08051917C1DF7500962AF8 /* FBUserSettingsViewResources.bundle */; };
 		9F1FC06817C679D000C2486C /* MainStoryboard~iphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F1FC06717C679D000C2486C /* MainStoryboard~iphone.storyboard */; };
+		9FA4DC0017C7D48500F23877 /* kml.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FA4DBFF17C7D48500F23877 /* kml.json */; };
+		9FA4DC0317C84B6E00F23877 /* Itinerary.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA4DC0217C84B6E00F23877 /* Itinerary.m */; };
+		9FA4DC0917C85AC900F23877 /* POI.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA4DC0817C85AC900F23877 /* POI.m */; };
+		9FA4DC0B17C9D93400F23877 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA4DC0A17C9D93400F23877 /* MapKit.framework */; };
 		9FF2C77C17C1341500468634 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FF2C77B17C1341500468634 /* UIKit.framework */; };
 		9FF2C77E17C1341500468634 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FF2C77D17C1341500468634 /* Foundation.framework */; };
 		9FF2C78017C1341500468634 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FF2C77F17C1341500468634 /* CoreGraphics.framework */; };
@@ -46,6 +50,12 @@
 		9F08051717C1DF4E00962AF8 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = "facebook-ios-sdk/build/FacebookSDK.framework"; sourceTree = "<group>"; };
 		9F08051917C1DF7500962AF8 /* FBUserSettingsViewResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FBUserSettingsViewResources.bundle; path = "facebook-ios-sdk/build/FacebookSDK.framework/Versions/A/Resources/FBUserSettingsViewResources.bundle"; sourceTree = "<group>"; };
 		9F1FC06717C679D000C2486C /* MainStoryboard~iphone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "MainStoryboard~iphone.storyboard"; sourceTree = "<group>"; };
+		9FA4DBFF17C7D48500F23877 /* kml.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = kml.json; path = ../../kml.json; sourceTree = "<group>"; };
+		9FA4DC0117C84B6E00F23877 /* Itinerary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Itinerary.h; path = CoreData/Itinerary.h; sourceTree = "<group>"; };
+		9FA4DC0217C84B6E00F23877 /* Itinerary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Itinerary.m; path = CoreData/Itinerary.m; sourceTree = "<group>"; };
+		9FA4DC0717C85AC900F23877 /* POI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = POI.h; path = CoreData/POI.h; sourceTree = "<group>"; };
+		9FA4DC0817C85AC900F23877 /* POI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = POI.m; path = CoreData/POI.m; sourceTree = "<group>"; };
+		9FA4DC0A17C9D93400F23877 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9FF2C77817C1341500468634 /* travelus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = travelus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FF2C77B17C1341500468634 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9FF2C77D17C1341500468634 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -79,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FA4DC0B17C9D93400F23877 /* MapKit.framework in Frameworks */,
 				9FF2C77C17C1341500468634 /* UIKit.framework in Frameworks */,
 				9FF2C77E17C1341500468634 /* Foundation.framework in Frameworks */,
 				9FF2C78017C1341500468634 /* CoreGraphics.framework in Frameworks */,
@@ -101,6 +112,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9FA4DBF817C7CFC500F23877 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				9FA4DC0117C84B6E00F23877 /* Itinerary.h */,
+				9FA4DC0217C84B6E00F23877 /* Itinerary.m */,
+				9FF2C79817C1341500468634 /* travelus.xcdatamodeld */,
+				9FA4DC0717C85AC900F23877 /* POI.h */,
+				9FA4DC0817C85AC900F23877 /* POI.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
 		9FF2C76F17C1341500468634 = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +146,7 @@
 		9FF2C77A17C1341500468634 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9FA4DC0A17C9D93400F23877 /* MapKit.framework */,
 				9F08051917C1DF7500962AF8 /* FBUserSettingsViewResources.bundle */,
 				9F08051717C1DF4E00962AF8 /* FacebookSDK.framework */,
 				9FF2C77B17C1341500468634 /* UIKit.framework */,
@@ -137,6 +161,7 @@
 		9FF2C78317C1341500468634 /* travelus */ = {
 			isa = PBXGroup;
 			children = (
+				9FA4DBF817C7CFC500F23877 /* CoreData */,
 				9FF2C78C17C1341500468634 /* RCAppDelegate.h */,
 				9FF2C78D17C1341500468634 /* RCAppDelegate.m */,
 				9F1FC06717C679D000C2486C /* MainStoryboard~iphone.storyboard */,
@@ -145,7 +170,6 @@
 				9FF2C79C17C1341500468634 /* RCMainViewController.m */,
 				9FF2C79E17C1341500468634 /* RCFlipsideViewController.h */,
 				9FF2C79F17C1341500468634 /* RCFlipsideViewController.m */,
-				9FF2C79817C1341500468634 /* travelus.xcdatamodeld */,
 				9FF2C78417C1341500468634 /* Supporting Files */,
 			);
 			path = travelus;
@@ -154,6 +178,7 @@
 		9FF2C78417C1341500468634 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9FA4DBFF17C7D48500F23877 /* kml.json */,
 				9FF2C78517C1341500468634 /* travelus-Info.plist */,
 				9FF2C78617C1341500468634 /* InfoPlist.strings */,
 				9FF2C78917C1341500468634 /* main.m */,
@@ -263,6 +288,7 @@
 				9FF2C79717C1341500468634 /* MainStoryboard~ipad.storyboard in Resources */,
 				9F08051A17C1DF7500962AF8 /* FBUserSettingsViewResources.bundle in Resources */,
 				9F1FC06817C679D000C2486C /* MainStoryboard~iphone.storyboard in Resources */,
+				9FA4DC0017C7D48500F23877 /* kml.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +328,8 @@
 				9FF2C79A17C1341500468634 /* travelus.xcdatamodeld in Sources */,
 				9FF2C79D17C1341500468634 /* RCMainViewController.m in Sources */,
 				9FF2C7A017C1341500468634 /* RCFlipsideViewController.m in Sources */,
+				9FA4DC0317C84B6E00F23877 /* Itinerary.m in Sources */,
+				9FA4DC0917C85AC900F23877 /* POI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

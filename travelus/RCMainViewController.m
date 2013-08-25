@@ -58,20 +58,8 @@
         [self performSegueWithIdentifier:@"showAlternate" sender:sender];
     }
 }
-#pragma mark - FBLoginViewDelegate
-- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
-    
-}
-
-- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user {
-    
-}
-
-- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
-    
-}
-
-- (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error {
-    
+#pragma mark - MKMapViewDeleget
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    return nil;
 }
 @end
