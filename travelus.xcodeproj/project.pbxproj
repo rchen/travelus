@@ -14,6 +14,8 @@
 		9FA4DC0317C84B6E00F23877 /* Itinerary.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA4DC0217C84B6E00F23877 /* Itinerary.m */; };
 		9FA4DC0917C85AC900F23877 /* POI.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA4DC0817C85AC900F23877 /* POI.m */; };
 		9FA4DC0B17C9D93400F23877 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA4DC0A17C9D93400F23877 /* MapKit.framework */; };
+		9FA4DC1217C9DE9600F23877 /* RCAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA4DC1117C9DE9600F23877 /* RCAnnotation.m */; };
+		9FA4DC1417CA603400F23877 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA4DC1317CA603400F23877 /* CoreLocation.framework */; };
 		9FF2C77C17C1341500468634 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FF2C77B17C1341500468634 /* UIKit.framework */; };
 		9FF2C77E17C1341500468634 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FF2C77D17C1341500468634 /* Foundation.framework */; };
 		9FF2C78017C1341500468634 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FF2C77F17C1341500468634 /* CoreGraphics.framework */; };
@@ -56,6 +58,9 @@
 		9FA4DC0717C85AC900F23877 /* POI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = POI.h; path = CoreData/POI.h; sourceTree = "<group>"; };
 		9FA4DC0817C85AC900F23877 /* POI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = POI.m; path = CoreData/POI.m; sourceTree = "<group>"; };
 		9FA4DC0A17C9D93400F23877 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		9FA4DC1017C9DE9600F23877 /* RCAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCAnnotation.h; path = RCView/RCAnnotation.h; sourceTree = "<group>"; };
+		9FA4DC1117C9DE9600F23877 /* RCAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCAnnotation.m; path = RCView/RCAnnotation.m; sourceTree = "<group>"; };
+		9FA4DC1317CA603400F23877 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		9FF2C77817C1341500468634 /* travelus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = travelus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FF2C77B17C1341500468634 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9FF2C77D17C1341500468634 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -89,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FA4DC1417CA603400F23877 /* CoreLocation.framework in Frameworks */,
 				9FA4DC0B17C9D93400F23877 /* MapKit.framework in Frameworks */,
 				9FF2C77C17C1341500468634 /* UIKit.framework in Frameworks */,
 				9FF2C77E17C1341500468634 /* Foundation.framework in Frameworks */,
@@ -124,6 +130,15 @@
 			name = CoreData;
 			sourceTree = "<group>";
 		};
+		9FA4DC0C17C9DE4D00F23877 /* RCView */ = {
+			isa = PBXGroup;
+			children = (
+				9FA4DC1017C9DE9600F23877 /* RCAnnotation.h */,
+				9FA4DC1117C9DE9600F23877 /* RCAnnotation.m */,
+			);
+			name = RCView;
+			sourceTree = "<group>";
+		};
 		9FF2C76F17C1341500468634 = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +161,7 @@
 		9FF2C77A17C1341500468634 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9FA4DC1317CA603400F23877 /* CoreLocation.framework */,
 				9FA4DC0A17C9D93400F23877 /* MapKit.framework */,
 				9F08051917C1DF7500962AF8 /* FBUserSettingsViewResources.bundle */,
 				9F08051717C1DF4E00962AF8 /* FacebookSDK.framework */,
@@ -161,6 +177,7 @@
 		9FF2C78317C1341500468634 /* travelus */ = {
 			isa = PBXGroup;
 			children = (
+				9FA4DC0C17C9DE4D00F23877 /* RCView */,
 				9FA4DBF817C7CFC500F23877 /* CoreData */,
 				9FF2C78C17C1341500468634 /* RCAppDelegate.h */,
 				9FF2C78D17C1341500468634 /* RCAppDelegate.m */,
@@ -330,6 +347,7 @@
 				9FF2C7A017C1341500468634 /* RCFlipsideViewController.m in Sources */,
 				9FA4DC0317C84B6E00F23877 /* Itinerary.m in Sources */,
 				9FA4DC0917C85AC900F23877 /* POI.m in Sources */,
+				9FA4DC1217C9DE9600F23877 /* RCAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

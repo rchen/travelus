@@ -7,6 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Itinerary.h"
+#import "POI.h"
+
+#define CONTEXT ((RCAppDelegate *)[[UIApplication sharedApplication]delegate]).managedObjectContext
 
 @interface RCAppDelegate : UIResponder <UIApplicationDelegate>
 

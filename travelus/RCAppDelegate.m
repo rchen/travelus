@@ -7,11 +7,9 @@
 //
 
 #import "RCAppDelegate.h"
-#import "Itinerary.h"
-#import "POI.h"
 
 #import "RCMainViewController.h"
-#define CONTEXT ((RCAppDelegate *)[[UIApplication sharedApplication]delegate]).managedObjectContext
+
 @implementation RCAppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -61,7 +59,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-//    RCMainViewController *controller = (RCMainViewController *)self.window.rootViewController;
     [self managedObjectContext];
     [self importTestData];
     return YES;
