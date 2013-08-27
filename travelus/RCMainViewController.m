@@ -22,9 +22,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(fetchRequest:) name:@"com.travelus.filter" object:nil];
     if ([CLLocationManager locationServicesEnabled]) {
     }
-    [self fetchRequest:1];
+    [self fetchRequest:nil];
+}
+
+- (void)viewDidUnload {
+    [super viewDidUnload];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"com.travelus.filter" object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -32,12 +38,18 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)fetchRequest:(NSInteger)filterType {
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"POI"];
-    self.dataArray = [CONTEXT executeFetchRequest:request error:nil];
-    for (POI *poi in dataArray) {
-        RCAnnotation *annotation = [[RCAnnotation alloc]initWithPOI:poi];
-        [self.mapView addAnnotation:annotation];
+- (void)fetchRequest:(NSNotification *)filter {
+    for (id poi in self.mapView.annotations)
+        if ([poi isKindOfClass:[RCAnnotation class]])
+            [self.mapView removeAnnotation:poi];
+
+    if (filter.userInfo == nil) {
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"POI"];
+        self.dataArray = [CONTEXT executeFetchRequest:request error:nil];
+        for (POI *poi in dataArray) {
+            RCAnnotation *annotation = [[RCAnnotation alloc]initWithPOI:poi];
+            [self.mapView addAnnotation:annotation];
+        }
     }
 }
 
