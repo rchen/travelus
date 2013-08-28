@@ -47,7 +47,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="列表" id="5FK-XA-Q64">
                             <connections>
-                                <segue destination="Tfh-bb-50D" kind="push" id="UlA-3b-5yj"/>
+                                <segue destination="Tfh-bb-50D" kind="push" identifier="DataList" id="UlA-3b-5yj"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -59,25 +59,15 @@
             </objects>
             <point key="canvasLocation" x="-2" y="-189"/>
         </scene>
-        <!--Table View Controller - 列表-->
+        <!--Detail List View Controller - 列表-->
         <scene sceneID="cVo-hX-7oh">
             <objects>
-                <tableViewController id="Tfh-bb-50D" sceneMemberID="viewController">
+                <tableViewController id="Tfh-bb-50D" customClass="RCDetailListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="jl2-8x-h9F">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="213-rK-Ief">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </tableViewCell>
-                        </prototypes>
+                        <color key="backgroundColor" red="0.34509803921568627" green="0.34509803921568627" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" white="0.51861884120000001" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
                             <outlet property="dataSource" destination="Tfh-bb-50D" id="DWl-1e-qmT"/>
                             <outlet property="delegate" destination="Tfh-bb-50D" id="Dtt-3O-tyY"/>
@@ -139,21 +129,6 @@
             <point key="canvasLocation" x="534" y="165"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="RCDateListViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RCDateListViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="back:"/>
-            </relationships>
-        </class>
-        <class className="RCMainViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RCMainViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="togglePopover:"/>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

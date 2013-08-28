@@ -9,6 +9,7 @@
 #import "RCMainViewController.h"
 #import "RCAppDelegate.h"
 #import "RCAnnotation.h"
+#import "RCDetailListViewController.h"
 
 #define METERS_PER_MILE 500
 
@@ -39,17 +40,23 @@
 }
 
 - (void)fetchRequest:(NSNotification *)filter {
+    NSString *titleString = @"東京行-%@";
+    /* remove all annotation */
     for (id poi in self.mapView.annotations)
         if ([poi isKindOfClass:[RCAnnotation class]])
             [self.mapView removeAnnotation:poi];
-
+    /* filter */
     if (filter.userInfo == nil) {
+        self.title = [NSString stringWithFormat:titleString, @"全部行程"];
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"POI"];
         self.dataArray = [CONTEXT executeFetchRequest:request error:nil];
         for (POI *poi in dataArray) {
             RCAnnotation *annotation = [[RCAnnotation alloc]initWithPOI:poi];
             [self.mapView addAnnotation:annotation];
         }
+    } else {
+        NSString *dateString = [NSString stringWithFormat:@"第%@天", [filter.userInfo objectForKey:@"day"]];
+        self.title = [NSString stringWithFormat:titleString, dateString];
     }
 }
 
@@ -86,6 +93,9 @@
         UIPopoverController *popoverController = [(UIStoryboardPopoverSegue *)segue popoverController];
         self.flipsidePopoverController = popoverController;
         popoverController.delegate = self;
+    } else if ([[segue identifier]isEqualToString:@"DataList"]) {
+        RCDetailListViewController *controller = [segue destinationViewController];
+        controller.dataArray = dataArray;
     }
 }
 

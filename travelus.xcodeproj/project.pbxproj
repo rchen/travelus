@@ -11,6 +11,9 @@
 		9F08051A17C1DF7500962AF8 /* FBUserSettingsViewResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9F08051917C1DF7500962AF8 /* FBUserSettingsViewResources.bundle */; };
 		9F1FC06817C679D000C2486C /* MainStoryboard~iphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F1FC06717C679D000C2486C /* MainStoryboard~iphone.storyboard */; };
 		9F30C24917CCE25E0049EDB7 /* RCDateListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F30C24817CCE25E0049EDB7 /* RCDateListViewController.m */; };
+		9F30C24C17CD0F3F0049EDB7 /* RCDetailListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F30C24B17CD0F3F0049EDB7 /* RCDetailListViewController.m */; };
+		9F30C24F17CD21920049EDB7 /* RCPOICell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F30C24E17CD21920049EDB7 /* RCPOICell.m */; };
+		9F30C25117CD21D10049EDB7 /* RCPOICell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F30C25017CD21D10049EDB7 /* RCPOICell.xib */; };
 		9FA4DC0017C7D48500F23877 /* kml.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FA4DBFF17C7D48500F23877 /* kml.json */; };
 		9FA4DC0317C84B6E00F23877 /* Itinerary.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA4DC0217C84B6E00F23877 /* Itinerary.m */; };
 		9FA4DC0917C85AC900F23877 /* POI.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA4DC0817C85AC900F23877 /* POI.m */; };
@@ -55,6 +58,11 @@
 		9F1FC06717C679D000C2486C /* MainStoryboard~iphone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "MainStoryboard~iphone.storyboard"; sourceTree = "<group>"; };
 		9F30C24717CCE25E0049EDB7 /* RCDateListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDateListViewController.h; sourceTree = "<group>"; };
 		9F30C24817CCE25E0049EDB7 /* RCDateListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDateListViewController.m; sourceTree = "<group>"; };
+		9F30C24A17CD0F3E0049EDB7 /* RCDetailListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDetailListViewController.h; sourceTree = "<group>"; };
+		9F30C24B17CD0F3F0049EDB7 /* RCDetailListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDetailListViewController.m; sourceTree = "<group>"; };
+		9F30C24D17CD21920049EDB7 /* RCPOICell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCPOICell.h; path = RCView/RCPOICell.h; sourceTree = "<group>"; };
+		9F30C24E17CD21920049EDB7 /* RCPOICell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCPOICell.m; path = RCView/RCPOICell.m; sourceTree = "<group>"; };
+		9F30C25017CD21D10049EDB7 /* RCPOICell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RCPOICell.xib; path = RCView/RCPOICell.xib; sourceTree = "<group>"; };
 		9FA4DBFF17C7D48500F23877 /* kml.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = kml.json; path = ../../kml.json; sourceTree = "<group>"; };
 		9FA4DC0117C84B6E00F23877 /* Itinerary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Itinerary.h; path = CoreData/Itinerary.h; sourceTree = "<group>"; };
 		9FA4DC0217C84B6E00F23877 /* Itinerary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Itinerary.m; path = CoreData/Itinerary.m; sourceTree = "<group>"; };
@@ -138,6 +146,9 @@
 			children = (
 				9FA4DC1017C9DE9600F23877 /* RCAnnotation.h */,
 				9FA4DC1117C9DE9600F23877 /* RCAnnotation.m */,
+				9F30C24D17CD21920049EDB7 /* RCPOICell.h */,
+				9F30C24E17CD21920049EDB7 /* RCPOICell.m */,
+				9F30C25017CD21D10049EDB7 /* RCPOICell.xib */,
 			);
 			name = RCView;
 			sourceTree = "<group>";
@@ -192,6 +203,8 @@
 				9FF2C79F17C1341500468634 /* RCFlipsideViewController.m */,
 				9F30C24717CCE25E0049EDB7 /* RCDateListViewController.h */,
 				9F30C24817CCE25E0049EDB7 /* RCDateListViewController.m */,
+				9F30C24A17CD0F3E0049EDB7 /* RCDetailListViewController.h */,
+				9F30C24B17CD0F3F0049EDB7 /* RCDetailListViewController.m */,
 				9FF2C78417C1341500468634 /* Supporting Files */,
 			);
 			path = travelus;
@@ -311,6 +324,7 @@
 				9F08051A17C1DF7500962AF8 /* FBUserSettingsViewResources.bundle in Resources */,
 				9F1FC06817C679D000C2486C /* MainStoryboard~iphone.storyboard in Resources */,
 				9FA4DC0017C7D48500F23877 /* kml.json in Resources */,
+				9F30C25117CD21D10049EDB7 /* RCPOICell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +368,8 @@
 				9FA4DC0917C85AC900F23877 /* POI.m in Sources */,
 				9FA4DC1217C9DE9600F23877 /* RCAnnotation.m in Sources */,
 				9F30C24917CCE25E0049EDB7 /* RCDateListViewController.m in Sources */,
+				9F30C24C17CD0F3F0049EDB7 /* RCDetailListViewController.m in Sources */,
+				9F30C24F17CD21920049EDB7 /* RCPOICell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
