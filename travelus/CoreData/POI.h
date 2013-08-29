@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import <CoreLocation/CoreLocation.h>
 
 @class Itinerary;
 
@@ -21,5 +22,5 @@
 @property (nonatomic, retain) NSDate * daytime;
 @property (nonatomic, retain) NSNumber * poiID;
 @property (nonatomic, retain) Itinerary *itinerary;
-
+@property (nonatomic)CLLocationDistance distance;
 @end

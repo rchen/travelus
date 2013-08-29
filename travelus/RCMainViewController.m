@@ -15,10 +15,14 @@
 
 @interface RCMainViewController ()
 @property (nonatomic, strong)NSArray *dataArray;
+@property (nonatomic, strong)NSMutableDictionary *distanceMap;
+@property (nonatomic, strong)CLLocation *userLocation;
 @end
 
 @implementation RCMainViewController
 @synthesize dataArray;
+@synthesize distanceMap;
+@synthesize userLocation;
 
 - (void)viewDidLoad
 {
@@ -26,7 +30,9 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(fetchRequest:) name:@"com.travelus.filter" object:nil];
     if ([CLLocationManager locationServicesEnabled]) {
     }
+    self.userLocation = [[CLLocation alloc]initWithLatitude:35.681381 longitude:139.766083];
     [self fetchRequest:nil];
+    self.distanceMap = [[NSMutableDictionary alloc]init];
 }
 
 - (void)viewDidUnload {
@@ -50,13 +56,28 @@
         self.title = [NSString stringWithFormat:titleString, @"全部行程"];
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"POI"];
         self.dataArray = [CONTEXT executeFetchRequest:request error:nil];
-        for (POI *poi in dataArray) {
-            RCAnnotation *annotation = [[RCAnnotation alloc]initWithPOI:poi];
-            [self.mapView addAnnotation:annotation];
-        }
     } else {
         NSString *dateString = [NSString stringWithFormat:@"第%@天", [filter.userInfo objectForKey:@"day"]];
         self.title = [NSString stringWithFormat:titleString, dateString];
+    }
+    // get distance and sort
+    if ([dataArray count] != 0) {
+        for (POI *poi in dataArray) {
+            /* get distance */
+            CLLocation *poiLocation = [[CLLocation alloc]initWithLatitude:[poi.latitude doubleValue]  longitude:[poi.longitude doubleValue]];
+            CLLocationDistance distance = [poiLocation distanceFromLocation:userLocation];
+            poi.distance = distance;
+            RCAnnotation *annotation = [[RCAnnotation alloc]initWithPOI:poi];
+            [self.mapView addAnnotation:annotation];
+        }
+        
+        /* sort */
+        self.dataArray = [dataArray sortedArrayUsingComparator:^NSComparisonResult(POI *obj1, POI *obj2){
+            if (obj1.distance > obj2.distance)
+                return NSOrderedDescending;
+            else
+                return NSOrderedAscending;
+        }];
     }
 }
 
@@ -69,7 +90,7 @@
 }
 
 - (void)goToRegion:(CLLocationCoordinate2D)coordinate {
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coordinate, 1 * METERS_PER_MILE,1 * METERS_PER_MILE);
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 1 * METERS_PER_MILE,1 * METERS_PER_MILE);
     [self.mapView setRegion:viewRegion animated:YES];
 }
 

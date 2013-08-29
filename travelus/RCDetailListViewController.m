@@ -58,6 +58,8 @@
     }
     POI *poi = [dataArray objectAtIndex:indexPath.row];
     cell.titleLabel.text = poi.name;
+    float distance =  poi.distance / 1000;
+    cell.distanceLabel.text = [NSString stringWithFormat:@"%2.1f", distance];
     return cell;
 }
 

@@ -20,5 +20,9 @@
 @dynamic daytime;
 @dynamic poiID;
 @dynamic itinerary;
+@synthesize distance = _distance;
 
+- (void)setDistance:(CLLocationDistance)distance {
+    _distance = distance;
+}
 @end
