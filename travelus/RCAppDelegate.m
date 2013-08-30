@@ -44,8 +44,9 @@
         itinerary.itineraryID = itineraryID;
         itinerary.calendar = date;
         itinerary.detail = @"";
+        [CONTEXT save:nil];
     }
-    [CONTEXT save:nil];
+
     /* add or merge poi */
     NSArray *poisArray = [resultDict objectForKey:@"pois"];
     for (NSDictionary * dict in poisArray) {

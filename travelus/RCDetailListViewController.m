@@ -98,13 +98,27 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    POI *poi = [dataArray objectAtIndex:indexPath.row];
+    CLLocationManager *locationManager = [[CLLocationManager alloc]init];
+    CLLocation *location = locationManager.location;
+    if (!location) {
+        if (indexPath.row == 0) {
+            location = [[CLLocation alloc]initWithLatitude:35.681381 longitude:139.766083];
+        } else {
+            POI *previousPOI =  [dataArray objectAtIndex:indexPath.row - 1];
+            location = [[CLLocation alloc]initWithLatitude:[previousPOI.latitude doubleValue] longitude:[previousPOI.longitude doubleValue]];
+        }
+    }
+    NSString *mapLink = [NSString stringWithFormat:@"?daddr=%@,%@&saddr=%f,%f", poi.latitude, poi.longitude, location.coordinate.latitude, location.coordinate.longitude];
+    BOOL openurlflag= [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"comgooglemaps://"]];
+    
+    if(openurlflag){
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"comgooglemaps://%@",mapLink]]];
+    }else{
+        NSURL *storyURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://maps.google.com/maps%@",mapLink]];
+        
+        [[UIApplication sharedApplication] openURL:storyURL];
+    }
 }
 
 @end

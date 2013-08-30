@@ -7,12 +7,17 @@
 //
 
 #import "RCDateListViewController.h"
+#import "RCAppDelegate.h"
+@interface NSString (format)
++ (NSString *)stringWithDate:(NSDate *)date;
+@end
 
 @interface RCDateListViewController ()
-
+@property (nonatomic, strong)NSArray *dataArray;
 @end
 
 @implementation RCDateListViewController
+@synthesize dataArray;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,12 +31,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Itinerary"];
+    self.dataArray = [CONTEXT executeFetchRequest:request error:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,7 +48,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 7;
+    return [dataArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -61,9 +62,11 @@
         case 0:
             cell.textLabel.text = @"全部行程";
             break;
-        default:
-            cell.textLabel.text = [NSString stringWithFormat:@"第%i天", indexPath.row];
-            break;
+        default: {
+            Itinerary *itinerary = [dataArray objectAtIndex:indexPath.row - 1];
+            NSString *dateString = [NSString stringWithDate:itinerary.calendar];
+            cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", itinerary.titile, dateString];
+        }
     }
     return cell;
 }
@@ -113,11 +116,20 @@
 {
     NSDictionary *obj_dict = nil;
     if (indexPath.row != 0) {
-        obj_dict = @{@"day": [NSNumber numberWithInteger:indexPath.row]};
+        obj_dict = @{@"itinerary": [dataArray objectAtIndex:indexPath.row - 1]};
     }
     [self.navigationController dismissViewControllerAnimated:YES completion:^{
         [[NSNotificationCenter defaultCenter]postNotificationName:@"com.travelus.filter" object:nil userInfo:obj_dict];
     }];
 }
 
+@end
+
+@implementation NSString (format)
++ (NSString *)stringWithDate:(NSDate *)date
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    return [dateFormatter stringFromDate:date];
+}
 @end

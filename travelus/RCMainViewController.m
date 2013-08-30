@@ -12,6 +12,9 @@
 #import "RCDetailListViewController.h"
 
 #define METERS_PER_MILE 500
+@interface NSString (format)
++ (NSString *)stringWithDate:(NSDate *)date;
+@end
 
 @interface RCMainViewController ()
 @property (nonatomic, strong)NSArray *dataArray;
@@ -56,9 +59,23 @@
         self.title = [NSString stringWithFormat:titleString, @"全部行程"];
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"POI"];
         self.dataArray = [CONTEXT executeFetchRequest:request error:nil];
+        /* sort */
+        self.dataArray = [dataArray sortedArrayUsingComparator:^NSComparisonResult(POI *obj1, POI *obj2){
+            if (obj1.distance > obj2.distance)
+                return NSOrderedDescending;
+            else
+                return NSOrderedAscending;
+        }];
     } else {
-        NSString *dateString = [NSString stringWithFormat:@"第%@天", [filter.userInfo objectForKey:@"day"]];
-        self.title = [NSString stringWithFormat:titleString, dateString];
+        Itinerary *itinerary = [filter.userInfo objectForKey:@"itinerary"];
+        self.title = [NSString stringWithFormat:titleString, [NSString stringWithDate:itinerary.calendar]];
+        
+        self.dataArray = [[itinerary.pois allObjects]sortedArrayUsingComparator:^NSComparisonResult(POI *obj1, POI *obj2){
+            if (obj1.sequence > obj2.sequence)
+                return NSOrderedDescending;
+            else
+                return NSOrderedAscending;
+        }];
     }
     // get distance and sort
     if ([dataArray count] != 0) {
@@ -70,14 +87,6 @@
             RCAnnotation *annotation = [[RCAnnotation alloc]initWithPOI:poi];
             [self.mapView addAnnotation:annotation];
         }
-        
-        /* sort */
-        self.dataArray = [dataArray sortedArrayUsingComparator:^NSComparisonResult(POI *obj1, POI *obj2){
-            if (obj1.distance > obj2.distance)
-                return NSOrderedDescending;
-            else
-                return NSOrderedAscending;
-        }];
     }
 }
 
@@ -158,5 +167,13 @@
         return annotationView;
     }
     return nil;
+}
+@end
+@implementation NSString (format)
++ (NSString *)stringWithDate:(NSDate *)date
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    return [dateFormatter stringFromDate:date];
 }
 @end
