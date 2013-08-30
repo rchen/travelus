@@ -2,7 +2,7 @@
 //  POI.m
 //  travelus
 //
-//  Created by Hsueh Cheng Chen on 13/8/24.
+//  Created by Hsueh Cheng Chen on 13/8/30.
 //  Copyright (c) 2013年 Grant Chen. All rights reserved.
 //
 
@@ -12,13 +12,12 @@
 
 @implementation POI
 
-@dynamic name;
 @dynamic latitude;
 @dynamic longitude;
 @dynamic memo;
-@dynamic sequence;
-@dynamic daytime;
+@dynamic name;
 @dynamic poiID;
+@dynamic sequence;
 @dynamic itinerary;
 @synthesize distance = _distance;
 

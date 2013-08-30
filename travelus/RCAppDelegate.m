@@ -9,6 +9,9 @@
 #import "RCAppDelegate.h"
 
 #import "RCMainViewController.h"
+@interface NSDate (format)
++ (NSDate *)dateWithString:(NSString *)dateString;
+@end
 
 @implementation RCAppDelegate
 
@@ -21,24 +24,34 @@
     NSString *path = [[NSBundle mainBundle]pathForResource:@"kml" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:path];
     NSDictionary *resultDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-    /* check itinerary itinerary id */
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Itinerary"];
-    NSPredicate *predicat = [NSPredicate predicateWithFormat:@"itineraryID == %@", [resultDict objectForKey:@"id"]];
-    [request setPredicate:predicat];
-    NSArray *array = [CONTEXT executeFetchRequest:request error:nil];
-    Itinerary *itinerary = [array lastObject];
-    if (itinerary == nil){
-        itinerary = [NSEntityDescription insertNewObjectForEntityForName:@"Itinerary" inManagedObjectContext:CONTEXT];
+    NSString *itineraryTitle = [resultDict objectForKey:@"title"];
+    NSNumber *itineraryID = [resultDict objectForKey:@"id"];
+
+    /* import all itinerary date */
+    NSArray *allday = @[@"2013-09-17", @"2013-09-18", @"2013-09-19", @"2013-09-20", @"2013-09-21", @"2013-09-22", @"2013-09-23"];
+    for (NSString *dateString in allday) {
+        NSDate *date = [NSDate dateWithString:dateString];
+        NSLog(@"%@",date);
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Itinerary"];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"itineraryID == %@ AND calendar == %@", itineraryID, date];
+        [request setPredicate:predicate];
+        NSArray *array = [CONTEXT executeFetchRequest:request error:nil];
+        Itinerary *itinerary = [array lastObject];
+        if (itinerary == nil) {
+            itinerary = [NSEntityDescription insertNewObjectForEntityForName:@"Itinerary" inManagedObjectContext:CONTEXT];
+        }
+        itinerary.titile = itineraryTitle;
+        itinerary.itineraryID = itineraryID;
+        itinerary.calendar = date;
+        itinerary.detail = @"";
     }
-    itinerary.titile = [resultDict objectForKey:@"title"];
-    itinerary.detail = [resultDict objectForKey:@"detail"];
-    itinerary.itineraryID = [resultDict objectForKey:@"id"];
+    [CONTEXT save:nil];
     /* add or merge poi */
     NSArray *poisArray = [resultDict objectForKey:@"pois"];
     for (NSDictionary * dict in poisArray) {
-        request = [NSFetchRequest fetchRequestWithEntityName:@"POI"];
-        predicat = [NSPredicate predicateWithFormat:@"poiID==%@", [dict objectForKey:@"id"]];
-        [request setPredicate:predicat];
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"POI"];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"poiID==%@", [dict objectForKey:@"id"]];
+        [request setPredicate:predicate];
         NSArray *array = [CONTEXT executeFetchRequest:request error:nil];
         POI *poi = [array lastObject];
         if (poi == nil) {
@@ -48,12 +61,36 @@
         poi.latitude = [dict objectForKey:@"latitude"];
         poi.longitude = [dict objectForKey:@"longitude"];
         poi.memo = [dict objectForKey:@"memo"];
-//        poi.sequence = [dict objectForKey:@"name"];
-//        poi.daytime = [dict objectForKey:@"name"];
+        poi.sequence = [dict objectForKey:@"sequence"];
         poi.poiID = [dict objectForKey:@"id"];
-        poi.itinerary = itinerary;
+        NSString *dateString = [dict objectForKey:@"date"];
+        if (dateString) {
+            NSDate *date = [NSDate dateWithString:dateString];
+            NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Itinerary"];
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"itineraryID == %@ AND calendar == %@", itineraryID, date];
+            [request setPredicate:predicate];
+            NSArray *array = [CONTEXT executeFetchRequest:request error:nil];
+            Itinerary *itinerary = [array lastObject];
+            if (itinerary == nil) {
+                itinerary = [NSEntityDescription insertNewObjectForEntityForName:@"Itinerary" inManagedObjectContext:CONTEXT];
+            }
+            itinerary.titile = itineraryTitle;
+            itinerary.itineraryID = itineraryID;
+            itinerary.calendar = date;
+            itinerary.detail = @"";
+            NSPredicate *poiPredicate = [NSPredicate predicateWithBlock:^BOOL(POI *poiItem, NSDictionary *bindings) {
+                if (poiItem.poiID == poi.poiID)
+                    return YES;
+                else
+                    return NO;
+            }];
+            NSArray *itemArray = [[itinerary.pois allObjects]filteredArrayUsingPredicate:poiPredicate];
+            if (![itemArray count]) {
+                [itinerary addPoisObject:poi];
+            }
+        }
+    [CONTEXT save:nil];
     }
-    [CONTEXT save:nil]; 
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -188,3 +225,13 @@
 }
 
 @end
+
+@implementation NSDate (format)
++ (NSDate *)dateWithString:(NSString *)dateString {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    return [dateFormatter dateFromString:dateString];
+}
+@end
+
