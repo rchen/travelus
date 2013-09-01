@@ -9,9 +9,6 @@
 #import "RCAppDelegate.h"
 
 #import "RCMainViewController.h"
-@interface NSDate (format)
-+ (NSDate *)dateWithString:(NSString *)dateString;
-@end
 
 @implementation RCAppDelegate
 
@@ -236,3 +233,11 @@
 }
 @end
 
+@implementation NSString (format)
++ (NSString *)stringWithDate:(NSDate *)date
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    return [dateFormatter stringFromDate:date];
+}
+@end

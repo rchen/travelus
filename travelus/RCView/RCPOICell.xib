@@ -33,7 +33,7 @@
 			</object>
 			<object class="IBUITableViewCell" id="12645173">
 				<reference key="NSNextResponder"/>
-				<int key="NSvFlags">292</int>
+				<int key="NSvFlags">274</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIView" id="236836480">
 						<reference key="NSNextResponder" ref="12645173"/>
@@ -53,9 +53,9 @@
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<string key="IBUIText">Label</string>
-								<object class="NSColor" key="IBUITextColor" id="681305695">
+								<object class="NSColor" key="IBUITextColor" id="273819663">
 									<int key="NSColorSpace">1</int>
-									<bytes key="NSRGB">MSAxIDEAA</bytes>
+									<bytes key="NSRGB">MCAwIDAAA</bytes>
 								</object>
 								<object class="NSColor" key="IBUIHighlightedColor" id="111968808">
 									<int key="NSColorSpace">3</int>
@@ -87,7 +87,7 @@
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<string key="IBUIText">200.0</string>
-								<reference key="IBUITextColor" ref="681305695"/>
+								<reference key="IBUITextColor" ref="273819663"/>
 								<reference key="IBUIHighlightedColor" ref="111968808"/>
 								<int key="IBUIBaselineAdjustment">0</int>
 								<int key="IBUITextAlignment">2</int>
@@ -115,7 +115,7 @@
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<string key="IBUIText">KM</string>
-								<reference key="IBUITextColor" ref="681305695"/>
+								<reference key="IBUITextColor" ref="273819663"/>
 								<reference key="IBUIHighlightedColor" ref="111968808"/>
 								<int key="IBUIBaselineAdjustment">0</int>
 								<int key="IBUITextAlignment">2</int>
@@ -152,10 +152,6 @@
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="236836480"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
-				<object class="NSColor" key="IBUIBackgroundColor">
-					<int key="NSColorSpace">1</int>
-					<bytes key="NSRGB">MC4zNDUwOTgwMzkyIDAuMzQ1MDk4MDM5MiAwLjM0NTA5ODAzOTIAA</bytes>
-				</object>
 				<string key="IBUIRestorationIdentifier"/>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<reference key="IBUIContentView" ref="236836480"/>

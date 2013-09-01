@@ -8,9 +8,6 @@
 
 #import "RCDateListViewController.h"
 #import "RCAppDelegate.h"
-@interface NSString (format)
-+ (NSString *)stringWithDate:(NSDate *)date;
-@end
 
 @interface RCDateListViewController ()
 @property (nonatomic, strong)NSArray *dataArray;
@@ -48,7 +45,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [dataArray count];
+    return [dataArray count]+1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -56,7 +53,7 @@
     static NSString *CellIdentifier = @"DateListCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = (UITableViewCell *)[[UINib nibWithNibName:@"InfoCell" bundle:nil] instantiateWithOwner:self options:nil];
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     switch (indexPath.row) {
         case 0:
@@ -123,13 +120,4 @@
     }];
 }
 
-@end
-
-@implementation NSString (format)
-+ (NSString *)stringWithDate:(NSDate *)date
-{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    return [dateFormatter stringFromDate:date];
-}
 @end

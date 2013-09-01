@@ -24,3 +24,11 @@
 - (NSURL *)applicationDocumentsDirectory;
 
 @end
+
+@interface NSString (format)
++ (NSString *)stringWithDate:(NSDate *)date;
+@end
+
+@interface NSDate (format)
++ (NSDate *)dateWithString:(NSString *)dateString;
+@end

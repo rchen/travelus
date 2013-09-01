@@ -12,9 +12,6 @@
 #import "RCDetailListViewController.h"
 
 #define METERS_PER_MILE 500
-@interface NSString (format)
-+ (NSString *)stringWithDate:(NSDate *)date;
-@end
 
 @interface RCMainViewController ()
 @property (nonatomic, strong)NSArray *dataArray;
