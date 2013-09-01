@@ -17,12 +17,14 @@
 @property (nonatomic, strong)NSArray *dataArray;
 @property (nonatomic, strong)NSMutableDictionary *distanceMap;
 @property (nonatomic, strong)CLLocation *userLocation;
+@property (nonatomic)BOOL isEditing;
 @end
 
 @implementation RCMainViewController
 @synthesize dataArray;
 @synthesize distanceMap;
 @synthesize userLocation;
+@synthesize isEditing;
 
 - (void)viewDidLoad
 {
@@ -63,6 +65,7 @@
             else
                 return NSOrderedAscending;
         }];
+        isEditing = NO;
     } else {
         Itinerary *itinerary = [filter.userInfo objectForKey:@"itinerary"];
         self.title = [NSString stringWithFormat:titleString, [NSString stringWithDate:itinerary.calendar]];
@@ -73,6 +76,7 @@
             else
                 return NSOrderedAscending;
         }];
+        isEditing = YES;
     }
     // get distance and sort
     if ([dataArray count] != 0) {
@@ -123,6 +127,7 @@
     } else if ([[segue identifier]isEqualToString:@"DataList"]) {
         RCDetailListViewController *controller = [segue destinationViewController];
         controller.dataArray = dataArray;
+        controller.editingDisplay = isEditing;
     }
 }
 

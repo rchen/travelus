@@ -10,4 +10,5 @@
 
 @interface RCDetailListViewController : UITableViewController
 @property (nonatomic, strong)NSArray *dataArray;
+@property (nonatomic)BOOL editingDisplay;
 @end

@@ -16,6 +16,7 @@
 
 @implementation RCDetailListViewController
 @synthesize dataArray;
+@synthesize editingDisplay;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -29,10 +30,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
+    if (editingDisplay)
+        self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
