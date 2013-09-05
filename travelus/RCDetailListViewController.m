@@ -9,14 +9,16 @@
 #import "RCDetailListViewController.h"
 #import "POI.h"
 #import "RCPOICell.h"
+#import "RCAppDelegate.h"
 
-@interface RCDetailListViewController ()
-
+@interface RCDetailListViewController ()<UIActionSheetDelegate>
+@property (nonatomic, strong)POI *selectedPOI;
 @end
 
 @implementation RCDetailListViewController
 @synthesize dataArray;
 @synthesize editingDisplay;
+@synthesize selectedPOI;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,11 +35,19 @@
     if (editingDisplay)
         self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-
+- (void)viewWillAppear:(BOOL)animated {
+    [self sortDataArray];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)sortDataArray {
+    self.dataArray = [dataArray sortedArrayUsingComparator:^NSComparisonResult(POI *obj1, POI *obj2){
+        return [obj1.sequence compare:obj2.sequence];
+    }];
 }
 
 #pragma mark - Table view data source
@@ -86,6 +96,19 @@
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
+    POI *movePOI = [dataArray objectAtIndex:fromIndexPath.row];
+    NSMutableArray *multableDataArray = [dataArray mutableCopy];
+    [multableDataArray removeObjectAtIndex:fromIndexPath.row];
+    [multableDataArray insertObject:movePOI atIndex:toIndexPath.row];
+    self.dataArray = [NSArray arrayWithArray:multableDataArray];
+    int cnt = 0;
+    for (POI *poi in dataArray) {
+        poi.sequence = [NSNumber numberWithInt:cnt];
+        cnt ++;
+    }
+    [CONTEXT save:nil];
+    [self sortDataArray];
+    [self.tableView reloadData];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
@@ -97,18 +120,35 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    POI *poi = [dataArray objectAtIndex:indexPath.row];
+    self.selectedPOI = [dataArray objectAtIndex:indexPath.row];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:selectedPOI.name delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"開啓Google Map", nil];
+    actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
+
+    [actionSheet showInView:self.view];
+}
+#pragma mark - UIActionSheet Delegate
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch (buttonIndex) {
+        case 0:
+            [self openGoogleRout];
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)openGoogleRout {
     CLLocationManager *locationManager = [[CLLocationManager alloc]init];
     CLLocation *location = locationManager.location;
     if (!location) {
-        if (indexPath.row == 0) {
+        if ([selectedPOI.sequence isEqualToNumber:@0]) {
             location = [[CLLocation alloc]initWithLatitude:35.681381 longitude:139.766083];
         } else {
-            POI *previousPOI =  [dataArray objectAtIndex:indexPath.row - 1];
+            POI *previousPOI =  [dataArray objectAtIndex:[dataArray indexOfObject:self.selectedPOI] - 1];
             location = [[CLLocation alloc]initWithLatitude:[previousPOI.latitude doubleValue] longitude:[previousPOI.longitude doubleValue]];
         }
     }
-    NSString *mapLink = [NSString stringWithFormat:@"?daddr=%@,%@&saddr=%f,%f", poi.latitude, poi.longitude, location.coordinate.latitude, location.coordinate.longitude];
+    NSString *mapLink = [NSString stringWithFormat:@"?daddr=%@,%@&saddr=%f,%f", selectedPOI.latitude, selectedPOI.longitude, location.coordinate.latitude, location.coordinate.longitude];
     BOOL openurlflag= [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"comgooglemaps://"]];
     
     if(openurlflag){
@@ -119,5 +159,4 @@
         [[UIApplication sharedApplication] openURL:storyURL];
     }
 }
-
 @end
