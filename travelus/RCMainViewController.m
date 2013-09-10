@@ -17,6 +17,7 @@
 @property (nonatomic, strong)NSArray *dataArray;
 @property (nonatomic, strong)NSMutableDictionary *distanceMap;
 @property (nonatomic, strong)CLLocation *userLocation;
+@property (nonatomic, strong)CLLocation *goLocation;
 @property (nonatomic)BOOL isEditing;
 @end
 
@@ -25,21 +26,23 @@
 @synthesize distanceMap;
 @synthesize userLocation;
 @synthesize isEditing;
+@synthesize goLocation;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(fetchRequest:) name:@"com.travelus.filter" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(goRegion:) name:@"com.travelus.goregion" object:nil];
+
     if ([CLLocationManager locationServicesEnabled]) {
     }
     self.userLocation = [[CLLocation alloc]initWithLatitude:35.681381 longitude:139.766083];
     [self fetchRequest:nil];
     self.distanceMap = [[NSMutableDictionary alloc]init];
 }
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
+- (void)dealloc {
     [[NSNotificationCenter defaultCenter]removeObserver:self name:@"com.travelus.filter" object:nil];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"com.travelus.goregion" object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -92,16 +95,24 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    if ([dataArray count] != 0) {
-        POI *poi = [dataArray objectAtIndex:0];
-        CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([poi.latitude doubleValue], [poi.longitude doubleValue]);
-        [self goToRegion: coordinate];
+    if (goLocation == nil) {
+        if ([dataArray count] != 0) {
+            POI *poi = [dataArray objectAtIndex:0];
+            self.goLocation = [[CLLocation alloc]initWithLatitude:[poi.latitude doubleValue] longitude:[poi.longitude doubleValue]];
+            [self goToRegion:goLocation.coordinate];
+        }        
     }
 }
 
+- (void)goRegion:(NSNotification *)notification {
+    POI *poi = [notification.userInfo objectForKey:@"poi"];
+    self.goLocation = [[CLLocation alloc]initWithLatitude:[poi.latitude doubleValue] longitude:[poi.longitude doubleValue]];
+    [self goToRegion:goLocation.coordinate];
+}
+
 - (void)goToRegion:(CLLocationCoordinate2D)coordinate {
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 1 * METERS_PER_MILE,1 * METERS_PER_MILE);
-    [self.mapView setRegion:viewRegion animated:YES];
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coordinate, 1 * METERS_PER_MILE,1 * METERS_PER_MILE);
+    [self.mapView setRegion:viewRegion animated:NO];
 }
 
 #pragma mark - Flipside View Controller

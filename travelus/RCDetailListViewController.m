@@ -75,8 +75,6 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 60;
 }
-//[tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:10 inSection:indexPath.section]
-//                 atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -86,9 +84,19 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
+        NSMutableArray *mutableArray = [dataArray mutableCopy];
+        POI *poi = [mutableArray objectAtIndex:indexPath.row];
+        [mutableArray removeObjectAtIndex:indexPath.row];
+        [CONTEXT deleteObject:poi];
+        int cnt = 0;
+        for (POI *poi in mutableArray) {
+            poi.sequence = [NSNumber numberWithInt:cnt];
+            cnt ++;
+        }
+        [CONTEXT save:nil];
+        self.dataArray = [NSArray arrayWithArray:mutableArray];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
+    }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
@@ -121,7 +129,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     self.selectedPOI = [dataArray objectAtIndex:indexPath.row];
-    UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:selectedPOI.name delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"開啓Google Map", nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:selectedPOI.name delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"查看地圖", @"開啓Google Map", nil];
     actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
 
     [actionSheet showInView:self.view];
@@ -130,6 +138,10 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     switch (buttonIndex) {
         case 0:
+            [self.navigationController popViewControllerAnimated:YES];
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"com.travelus.goregion" object:nil userInfo:@{@"poi": selectedPOI}];
+            break;
+        case 1:
             [self openGoogleRout];
             break;
         default:

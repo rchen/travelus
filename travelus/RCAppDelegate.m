@@ -9,6 +9,7 @@
 #import "RCAppDelegate.h"
 
 #import "RCMainViewController.h"
+#define ISIMPORT @"ImportPOI"
 
 @implementation RCAppDelegate
 
@@ -89,13 +90,16 @@
         }
     [CONTEXT save:nil];
     }
+    [[NSUserDefaults standardUserDefaults]setObject:@(YES) forKey:ISIMPORT];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     [self managedObjectContext];
-    [self importTestData];
+    if (![[NSUserDefaults standardUserDefaults]objectForKey:ISIMPORT]) {
+        [self importTestData];
+    }
     return YES;
 }
 							
