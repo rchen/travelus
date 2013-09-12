@@ -14,6 +14,7 @@
 		9F30C24C17CD0F3F0049EDB7 /* RCDetailListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F30C24B17CD0F3F0049EDB7 /* RCDetailListViewController.m */; };
 		9F30C24F17CD21920049EDB7 /* RCPOICell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F30C24E17CD21920049EDB7 /* RCPOICell.m */; };
 		9F30C25117CD21D10049EDB7 /* RCPOICell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F30C25017CD21D10049EDB7 /* RCPOICell.xib */; };
+		9F45252017DEE23000C8D7DD /* RCDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F45251F17DEE23000C8D7DD /* RCDetailViewController.m */; };
 		9F813F8317D0CCB8002CC8FC /* POI.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F813F8217D0CCB8002CC8FC /* POI.m */; };
 		9F813F8617D0CCB8002CC8FC /* Itinerary.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F813F8517D0CCB8002CC8FC /* Itinerary.m */; };
 		9FA4DC0017C7D48500F23877 /* kml.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FA4DBFF17C7D48500F23877 /* kml.json */; };
@@ -63,6 +64,8 @@
 		9F30C24D17CD21920049EDB7 /* RCPOICell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCPOICell.h; path = RCView/RCPOICell.h; sourceTree = "<group>"; };
 		9F30C24E17CD21920049EDB7 /* RCPOICell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCPOICell.m; path = RCView/RCPOICell.m; sourceTree = "<group>"; };
 		9F30C25017CD21D10049EDB7 /* RCPOICell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RCPOICell.xib; path = RCView/RCPOICell.xib; sourceTree = "<group>"; };
+		9F45251E17DEE23000C8D7DD /* RCDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDetailViewController.h; sourceTree = "<group>"; };
+		9F45251F17DEE23000C8D7DD /* RCDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDetailViewController.m; sourceTree = "<group>"; };
 		9F813F8117D0CCB8002CC8FC /* POI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = POI.h; path = CoreData/POI.h; sourceTree = "<group>"; };
 		9F813F8217D0CCB8002CC8FC /* POI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = POI.m; path = CoreData/POI.m; sourceTree = "<group>"; };
 		9F813F8417D0CCB8002CC8FC /* Itinerary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Itinerary.h; path = CoreData/Itinerary.h; sourceTree = "<group>"; };
@@ -205,6 +208,8 @@
 				9F30C24817CCE25E0049EDB7 /* RCDateListViewController.m */,
 				9F30C24A17CD0F3E0049EDB7 /* RCDetailListViewController.h */,
 				9F30C24B17CD0F3F0049EDB7 /* RCDetailListViewController.m */,
+				9F45251E17DEE23000C8D7DD /* RCDetailViewController.h */,
+				9F45251F17DEE23000C8D7DD /* RCDetailViewController.m */,
 				9FF2C78417C1341500468634 /* Supporting Files */,
 			);
 			path = travelus;
@@ -370,6 +375,7 @@
 				9F30C24F17CD21920049EDB7 /* RCPOICell.m in Sources */,
 				9F813F8317D0CCB8002CC8FC /* POI.m in Sources */,
 				9F813F8617D0CCB8002CC8FC /* Itinerary.m in Sources */,
+				9F45252017DEE23000C8D7DD /* RCDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

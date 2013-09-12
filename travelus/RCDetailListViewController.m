@@ -7,6 +7,7 @@
 //
 
 #import "RCDetailListViewController.h"
+#import "RCDetailViewController.h"
 #import "POI.h"
 #import "RCPOICell.h"
 #import "RCAppDelegate.h"
@@ -129,19 +130,27 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     self.selectedPOI = [dataArray objectAtIndex:indexPath.row];
-    UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:selectedPOI.name delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"查看地圖", @"開啓Google Map", nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:selectedPOI.name delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"詳細內容", @"查看地圖", @"開啓Google Map", nil];
     actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
 
     [actionSheet showInView:self.view];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    RCDetailViewController *controller = segue.destinationViewController;
+    controller.poi = selectedPOI;
 }
 #pragma mark - UIActionSheet Delegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     switch (buttonIndex) {
         case 0:
+            [self performSegueWithIdentifier:@"Detail" sender:nil];
+            break;
+        case 1:
             [self.navigationController popViewControllerAnimated:YES];
             [[NSNotificationCenter defaultCenter]postNotificationName:@"com.travelus.goregion" object:nil userInfo:@{@"poi": selectedPOI}];
             break;
-        case 1:
+        case 2:
             [self openGoogleRout];
             break;
         default:

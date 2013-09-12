@@ -59,7 +59,7 @@
         poi.name = [dict objectForKey:@"name"];
         poi.latitude = [dict objectForKey:@"latitude"];
         poi.longitude = [dict objectForKey:@"longitude"];
-        poi.memo = [dict objectForKey:@"memo"];
+        poi.memo = [dict objectForKey:@"description"];
         poi.sequence = [dict objectForKey:@"sequence"];
         poi.poiID = [dict objectForKey:@"id"];
         NSString *dateString = [dict objectForKey:@"date"];
