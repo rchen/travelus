@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9F08051817C1DF4E00962AF8 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F08051717C1DF4E00962AF8 /* FacebookSDK.framework */; };
-		9F08051A17C1DF7500962AF8 /* FBUserSettingsViewResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9F08051917C1DF7500962AF8 /* FBUserSettingsViewResources.bundle */; };
 		9F1FC06817C679D000C2486C /* MainStoryboard~iphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F1FC06717C679D000C2486C /* MainStoryboard~iphone.storyboard */; };
 		9F30C24917CCE25E0049EDB7 /* RCDateListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F30C24817CCE25E0049EDB7 /* RCDateListViewController.m */; };
 		9F30C24C17CD0F3F0049EDB7 /* RCDetailListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F30C24B17CD0F3F0049EDB7 /* RCDetailListViewController.m */; };
@@ -54,8 +52,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9F08051717C1DF4E00962AF8 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = "facebook-ios-sdk/build/FacebookSDK.framework"; sourceTree = "<group>"; };
-		9F08051917C1DF7500962AF8 /* FBUserSettingsViewResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FBUserSettingsViewResources.bundle; path = "facebook-ios-sdk/build/FacebookSDK.framework/Versions/A/Resources/FBUserSettingsViewResources.bundle"; sourceTree = "<group>"; };
 		9F1FC06717C679D000C2486C /* MainStoryboard~iphone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "MainStoryboard~iphone.storyboard"; sourceTree = "<group>"; };
 		9F30C24717CCE25E0049EDB7 /* RCDateListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDateListViewController.h; sourceTree = "<group>"; };
 		9F30C24817CCE25E0049EDB7 /* RCDateListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDateListViewController.m; sourceTree = "<group>"; };
@@ -70,7 +66,7 @@
 		9F813F8217D0CCB8002CC8FC /* POI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = POI.m; path = CoreData/POI.m; sourceTree = "<group>"; };
 		9F813F8417D0CCB8002CC8FC /* Itinerary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Itinerary.h; path = CoreData/Itinerary.h; sourceTree = "<group>"; };
 		9F813F8517D0CCB8002CC8FC /* Itinerary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Itinerary.m; path = CoreData/Itinerary.m; sourceTree = "<group>"; };
-		9FA4DBFF17C7D48500F23877 /* kml.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = kml.json; path = ../../kmllib/kml.json; sourceTree = "<group>"; };
+		9FA4DBFF17C7D48500F23877 /* kml.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = kml.json; path = ../Library/kml.json; sourceTree = "<group>"; };
 		9FA4DC0A17C9D93400F23877 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9FA4DC1017C9DE9600F23877 /* RCAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCAnnotation.h; path = RCView/RCAnnotation.h; sourceTree = "<group>"; };
 		9FA4DC1117C9DE9600F23877 /* RCAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCAnnotation.m; path = RCView/RCAnnotation.m; sourceTree = "<group>"; };
@@ -114,7 +110,6 @@
 				9FF2C77E17C1341500468634 /* Foundation.framework in Frameworks */,
 				9FF2C78017C1341500468634 /* CoreGraphics.framework in Frameworks */,
 				9FF2C78217C1341500468634 /* CoreData.framework in Frameworks */,
-				9F08051817C1DF4E00962AF8 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,8 +175,6 @@
 			children = (
 				9FA4DC1317CA603400F23877 /* CoreLocation.framework */,
 				9FA4DC0A17C9D93400F23877 /* MapKit.framework */,
-				9F08051917C1DF7500962AF8 /* FBUserSettingsViewResources.bundle */,
-				9F08051717C1DF4E00962AF8 /* FacebookSDK.framework */,
 				9FF2C77B17C1341500468634 /* UIKit.framework */,
 				9FF2C77D17C1341500468634 /* Foundation.framework */,
 				9FF2C77F17C1341500468634 /* CoreGraphics.framework */,
@@ -326,7 +319,6 @@
 				9FF2C79217C1341500468634 /* Default@2x.png in Resources */,
 				9FF2C79417C1341500468634 /* Default-568h@2x.png in Resources */,
 				9FF2C79717C1341500468634 /* MainStoryboard~ipad.storyboard in Resources */,
-				9F08051A17C1DF7500962AF8 /* FBUserSettingsViewResources.bundle in Resources */,
 				9F1FC06817C679D000C2486C /* MainStoryboard~iphone.storyboard in Resources */,
 				9FA4DC0017C7D48500F23877 /* kml.json in Resources */,
 				9F30C25117CD21D10049EDB7 /* RCPOICell.xib in Resources */,
@@ -486,10 +478,7 @@
 		9FF2C7BA17C1341600468634 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/facebook-ios-sdk/build\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "travelus/travelus-Prefix.pch";
 				INFOPLIST_FILE = "travelus/travelus-Info.plist";
@@ -505,10 +494,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/facebook-ios-sdk/build\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "travelus/travelus-Prefix.pch";
 				INFOPLIST_FILE = "travelus/travelus-Info.plist";
